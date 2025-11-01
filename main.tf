@@ -6,7 +6,7 @@ locals {
 }
 
 resource "aws_ecr_repository" "app" {
-  name         = "${local.prefix}-ecr"
+  name         = "grp1-ecr"
   force_delete = true
 }
 
@@ -14,7 +14,7 @@ module "ecs" {
   source  = "terraform-aws-modules/ecs/aws"
   version = "~> 5.9.0"
 
-  cluster_name = "${local.prefix}-ecs"
+  cluster_name = "grp1-ecs"
 
   fargate_capacity_providers = {
     FARGATE = {
